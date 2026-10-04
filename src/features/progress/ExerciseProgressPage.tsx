@@ -8,6 +8,8 @@ import { buildExerciseHistory, personalRecordForExercise } from './progressLogic
 import { formatChartDate, formatFullDate } from '../../utils/date'
 import { IconButton } from '../../components/ui/IconButton'
 
+const ACCENT = '#2F8FFF'
+
 const tooltipProps = {
   contentStyle: { background: '#222222', border: '1px solid #2A2A2A', borderRadius: 12, fontSize: 13 },
   labelStyle: { color: '#9A9A9A', marginBottom: 4 },
@@ -73,9 +75,9 @@ export function ExerciseProgressPage() {
                   <Line
                     type="monotone"
                     dataKey="maxWeight"
-                    stroke="#D4FF3A"
+                    stroke={ACCENT}
                     strokeWidth={2.5}
-                    dot={{ r: 3, fill: '#D4FF3A', strokeWidth: 0 }}
+                    dot={{ r: 3, fill: ACCENT, strokeWidth: 0 }}
                     activeDot={{ r: 5 }}
                   />
                 </LineChart>
@@ -92,7 +94,7 @@ export function ExerciseProgressPage() {
                   <XAxis dataKey="label" tick={{ fill: '#9A9A9A', fontSize: 11 }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fill: '#9A9A9A', fontSize: 11 }} axisLine={false} tickLine={false} width={36} />
                   <Tooltip {...tooltipProps} formatter={(v) => [`${v} kg`, 'Volumen']} />
-                  <Bar dataKey="volume" fill="#D4FF3A" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="volume" fill={ACCENT} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
